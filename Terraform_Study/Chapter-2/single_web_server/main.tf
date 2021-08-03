@@ -2,6 +2,23 @@ provider "aws" {
     region = "us-east-1"
 }
 
+terraform {
+  backend "local" {
+    path = "."
+  }
+}
+
+#terraform {
+#  backend "s3" {
+#    bucket = "phongdh-bucket-1"
+#    key = "Chapter-2/single-web/terraform.tfstate"
+#    region = "us-east-1"
+#
+#    dynamodb_table = "terraform_locks"
+#    encrypt = true
+#  }
+#}
+
 
 resource "aws_instance" "instance_terraform" {
   ami = "ami-0dc2d3e4c0f9ebd18"
